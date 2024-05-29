@@ -17,3 +17,18 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 def create():
     if request.method == "GET":
         return render_template('index.html')
+    
+    if request.method == "POST":
+        hobby = request.form.getList('hobbies')
+        hobbies = ",".join(map(str, hobby))
+        first_name = request.form['first_name']
+        last_name = request.form['last_name']
+        email = request.form['email']
+        password = request.form['password']
+        gender = request.form['gender']
+        hobbies = hobbies
+        year = request.form['year']
+        
+        cur = 
+        
+ 

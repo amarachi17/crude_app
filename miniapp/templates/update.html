@@ -27,42 +27,42 @@
 
     
     <div class="container">
-        <form action="" method="post">
+        <form action="{{url_for('update', id=edit['id'])}}" method="post">
             <table class="table">
                 <tr>
                     <td>First Name:</td>
-                    <td><input type="text" name="first_name" class="form-control"></td>
+                    <td><input type="text" name="first_name" value="{{edit['first_name']}}" class="form-control"></td>
                 </tr>
                 <tr>
                     <td>Last Name:</td>
-                    <td><input type="text" name="last_name" class="form-control"></td>
+                    <td><input type="text" name="last_name" value="{{edit['last_name']}}" class="form-control"></td>
                 </tr>
                 <tr>
                     <td>Email:</td>
-                    <td><input type="email" name="email" class="form-control"></td>
+                    <td><input type="email" name="email" value="{{edit['email']}}" class="form-control"></td>
                 </tr>
                 <tr>
                     <td>Password:</td>
-                    <td><input type="password" name="password" class="form-control"></td>
+                    <td><input type="password" name="password" value="{{edit['password']}}" class="form-control"></td>
                 </tr>
                 <tr>
                     <td>Gender:</td>
                     <td>
-                        Male: <input type="radio" name="gender" value="male">
-                        Female: <input type="radio" name="gender" value="female">
+                        Male: <input type="radio" name="gender" value="male" {% if edit['gender'] == 'male' %} checked {% endif %}>
+                        Female: <input type="radio" name="gender" value="female" {% if edit['gender'] == 'female' %} checked {% endif %}>
                     </td>
                 </tr>
                 <tr>
                     <td>Hobbies:</td>
                     <td>
-                        Reading Novels: <input type="checkbox" name="hobbies" value="Reading-Novels">
-                        Movies: <input type="checkbox" name="hobbies" value="Movies">
-                        Sports: <input type="checkbox" name="hobbies" value="Sports">
+                        Reading Novels: <input type="checkbox" name="hobbies" value="Reading-Novels" {% if 'Reading-Novels' in edit['hobbies'].split(',') %} checked {% endif %}>
+                        Movies: <input type="checkbox" name="hobbies" value="Movies" {% if 'Movies' in edit['hobbies'].split(',') %} checked {% endif %}>
+                        Sports: <input type="checkbox" name="hobbies" value="Sports" {% if 'Sports' in edit['hobbies'].split(',') %} checked {% endif %}>
                     </td>
                 </tr>
                 <tr>
                     <td>Year:</td>
-                    <td><input type="number" name="year" class="form-control"></td>
+                    <td><input type="number" name="year" value="{{edit['year']}}" class="form-control"></td>
                 </tr>
                 <tr>
                     <td colspan="5">
